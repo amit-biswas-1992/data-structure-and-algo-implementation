@@ -15,9 +15,8 @@ class UnionFind {
     }
     
     find(p: number): number {
-        while (p != this.parent[p]) {
-        this.parent[p] = this.parent[this.parent[p]];
-        p = this.parent[p];
+        if(p != this.parent[p]) {
+            p = this.find(this.parent[p]);
         }
         return p;
     }
